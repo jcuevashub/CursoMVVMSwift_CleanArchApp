@@ -18,16 +18,15 @@ enum Endpoint {
     
     var url: URL{
        let baseURLString = "https://api.themoviedb.org/3"
-       let apiKey = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxYjBhYjYwNWE5Y2E2ODU5M2YzNjJmNGM2OTRiMDE2NSIsIm5iZiI6MTU4NzA5ODc5MS4yODEsInN1YiI6IjVlOTkzNGE3ZjY3ODdhMDAxNGYxZDBkNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.iMXRW391llC-Gp0-VoMiea3qeIDcTyNiMNYaqKV0ZpM"
         var path: String
         
         switch self {
         case .popularShows:
             path = "/tv/popular"
-            return URL(string: "\(baseURLString)\(path)?api_key=\(apiKey)")!
+            return URL(string: "\(baseURLString)\(path)")!
         case .tvShowDetails(id: let id):
             path = "/tv/\(id)"
-            return URL(string: "\(baseURLString)\(path)?api_key=\(apiKey)")!
+            return URL(string: "\(baseURLString)\(path)")!
         }
     }
     

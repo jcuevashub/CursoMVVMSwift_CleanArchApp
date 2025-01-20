@@ -11,12 +11,17 @@ struct PopularShowView: View {
     @StateObject private var viewModel = PopularShowsViewModel()
     
     var body: some View {
-        List(viewModel.shows, id: \.id) {show in
-            Text(show.name)
-        }
-        .onAppear {
-            Task {
-                viewModel.loadPopularShows()
+        NavigationView {
+            List(viewModel.shows, id: \.id) {show in
+                NavigationLink(
+                    destination: DetailView(viewModel: TVShowDetailViewModel(id: show.id))) {
+                        Text(show.name)
+                    }
+            }
+            .onAppear {
+                Task {
+                    viewModel.loadPopularShows()
+                }
             }
         }
     }
