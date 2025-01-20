@@ -17,6 +17,7 @@ final class APIClient {
         else {
             throw URLError(.badServerResponse)
         }
+        
         let decoder = JSONDecoder()
         
         return try JSONDecoder().decode(T.self, from: data)

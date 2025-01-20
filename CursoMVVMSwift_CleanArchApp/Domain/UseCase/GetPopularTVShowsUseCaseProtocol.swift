@@ -12,9 +12,9 @@ protocol GetPopularTVShowsUseCaseProtocol {
 }
 
 final class GetPopularTVShowsUseCase: GetPopularTVShowsUseCaseProtocol {
-    public let repository: TVShowRepository
+    private let repository: TVShowRepository
     
-    init(repository: TVShowRepository) {
+    init(repository: TVShowRepository = TVShowRepositoryImpl()) {
         self.repository = repository
     }
     
